@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopApp
+  labels:
+    app: shopApp
+  namespace: namespace-workflow-1703050683643
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopApp
+  template:
+    metadata:
+      labels:
+        app: shopApp
+    spec:
+      containers:
+        - name: shopApp
+          image: acrworkflow1703050683643.azurecr.io/image-workflow-1703050683643:latest
+          ports:
+            - containerPort: 3000
