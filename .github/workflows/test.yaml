@@ -5,11 +5,11 @@ name: test
             - main
     workflow_dispatch: {}
 env:
-    ACR_RESOURCE_GROUP: qpetraroiaRG
-    AZURE_CONTAINER_REGISTRY: acrworkflow1684283273643
-    CLUSTER_NAME: myAKSCluster
-    CLUSTER_RESOURCE_GROUP: qpetraroiaRG
-    CONTAINER_NAME: image-workflow-1684341863769
+    ACR_RESOURCE_GROUP: testRG
+    AZURE_CONTAINER_REGISTRY: acrworkflow1709443935437
+    CLUSTER_NAME: dsTest1
+    CLUSTER_RESOURCE_GROUP: testRG
+    CONTAINER_NAME: image-workflow-1709443935437
     DEPLOYMENT_MANIFEST_PATH: |
         manifests/deployment.yaml
         manifests/service.yaml
@@ -62,4 +62,4 @@ jobs:
                 action: deploy
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: namespace-workflow-1684341863769
+                namespace: default
