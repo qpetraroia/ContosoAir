@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contoso-air-deployment
+  labels:
+    app: contoso-air-deployment
+  namespace: namespace-workflow-1710621287452
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contoso-air-deployment
+  template:
+    metadata:
+      labels:
+        app: contoso-air-deployment
+    spec:
+      containers:
+        - name: contoso-air-deployment
+          image: acrworkflow1709443935437.azurecr.io/image-workflow-1710621287452:latest
+          ports:
+            - containerPort: 8080
